@@ -51,11 +51,10 @@ public String getMedia ( ){
 
     @Override
     public String toString() {
-        return "Media{" +
+        return " \n Media " +
                 "author='" + auteur + '\'' +
                 ", title='" + title + '\'' +
                 ", ISBN='" + ISBN + '\'' +
-                ", price=" + price +
-                '}';
+                ", price=" + price ;
     }
 }
