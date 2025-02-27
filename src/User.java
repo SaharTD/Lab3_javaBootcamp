@@ -7,12 +7,18 @@ public class User {
     private ArrayList<Media> purchased_MediaList;
     private ArrayList<Media> shopping_Cart;
 
+    public User(String email, String username) {
+        this.email = email;
+        this.username = username;
+        this.purchased_MediaList = new ArrayList<Media>();
+        this.shopping_Cart = new ArrayList<Media>();
+    }
 
-    public User(String username,String email,  ArrayList<Media> purchased_MediaList,ArrayList<Media> shopping_Cart ) {
+    public User(String username, String email, ArrayList<Media> purchased_MediaList, ArrayList<Media> shopping_Cart ) {
         this.username=username;
         this.email = email;
-        this.purchased_MediaList = purchased_MediaList;
-        this.shopping_Cart = shopping_Cart;
+        this.purchased_MediaList = new ArrayList<Media>();
+        this.shopping_Cart = new ArrayList<Media>();
     }
 
 
@@ -50,13 +56,13 @@ public class User {
     }
 
 public void addToCart(Media media){
-shopping_Cart.add(media);
+this.shopping_Cart.add(media);
 
     }
 
 
     public void remove_FromCart(Media media) {
-        shopping_Cart.remove(media);
+       this.shopping_Cart.remove(media);
 
     }
 
@@ -65,24 +71,24 @@ shopping_Cart.add(media);
    public void checkOut(){
         /// the stock is in the book class
 
-       for (int i = 0; i < shopping_Cart.size(); i++) {
-           Media m = shopping_Cart.get(i);
+       for (int i = 0; i < this.shopping_Cart.size(); i++) {
+           Media m = this.shopping_Cart.get(i);
            if (m instanceof Book) {
                Book b = (Book) m;
                b.purchase(this);
 
-           } else if (purchased_MediaList.contains(m)) {
+           } else if (this.purchased_MediaList.contains(m)) {
                System.out.println("This item has already been purchased");
            } else
            {
-               purchased_MediaList.add(m);
+               this.purchased_MediaList.add(m);
            }
-           shopping_Cart.remove(i);
+           this.shopping_Cart.remove(i);
            i--;
+           System.out.println("the items has been purchased successfully !");
 
        }
 
-       System.out.println("the items has been purchased !");
 
    }
 
