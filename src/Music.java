@@ -46,6 +46,6 @@ user.getPurchased_MediaList().add(this);
     @Override
     public String toString() {
         return "Music\n" +
-                "artist='" + artist ;
+                "artist=''\n" + artist ;
     }
 }
