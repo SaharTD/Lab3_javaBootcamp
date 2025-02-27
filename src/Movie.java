@@ -45,7 +45,7 @@ public ArrayList<Movie> recommendSimilarMovies(ArrayList<Movie> moiveCatalog){
 
     @Override
     public String toString() {
-        return "Movie\n" +
-                "duration= " + duration ;
+        return "\n Movie : \n" + this.getTitle()+
+                "\n duration in minuets = " + duration ;
     }
 }
