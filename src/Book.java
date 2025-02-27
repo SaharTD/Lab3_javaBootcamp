@@ -6,6 +6,11 @@ public class Book extends Media{
     private int quantityIn_stock;
     private ArrayList<Review> review;
 
+
+    public Book(String auteur, String ISBN, double price, String title) {
+        super(auteur, ISBN, price, title);
+    }
+
     public Book(String author, String ISBN, double price, String title, ArrayList<Review> review, int stock) {
         super(author, ISBN, price, title);
         this.review = review;
@@ -91,9 +96,9 @@ if (this.isBestseller()){
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "\n Book : \n" +
                 "review=" + review +
-                ", stock=" + quantityIn_stock;
+                "\nstock=" + quantityIn_stock;
     }
 }
 
