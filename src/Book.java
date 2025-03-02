@@ -9,17 +9,20 @@ public class Book extends Media{
 
     public Book(String auteur, String ISBN, double price, String title) {
         super(auteur, ISBN, price, title);
+        this.review = new ArrayList<Review>();
+        this.quantityIn_stock = quantityIn_stock;
     }
 
-    public Book(String author, String ISBN, double price, String title, ArrayList<Review> review, int stock) {
+    public Book(String author, String ISBN, double price, String title, ArrayList<Review> review, int quantityIn_stock) {
         super(author, ISBN, price, title);
-        this.review = review;
-        this.quantityIn_stock = stock;
+        this.review = new ArrayList<Review>();
+        this.quantityIn_stock = quantityIn_stock;
     }
 
     public void setReview(ArrayList<Review> review) {
         this.review = review;
     }
+    //we have to set an array list before we add
 
     public ArrayList<Review> getReview() {
         return review;
@@ -36,8 +39,9 @@ public class Book extends Media{
     }
 
 public void addReview (Review r){
-this.review.add(r);
-}
+    review.add(r);
+
+    }
 
 public double getAverageRating(){
         double Rate_count=0;
@@ -66,7 +70,7 @@ public void purchase(User user){
             if(quantityIn_stock>0){
             user.getPurchased_MediaList().add(this);
           quantityIn_stock--;
-          System.out.println("The purchase was made successfully");
+          System.out.println(this.getTitle()+"The purchase was made successfully");
 
             }else System.out.println("Sorry we are out of stock!");
 
@@ -75,7 +79,12 @@ public void purchase(User user){
 }
 
 public boolean isBestseller(){
-    return this.getAverageRating() >= 4.5;
+        if (this.getAverageRating() >= 4.5){
+            System.out.println(this.getAverageRating()+"Is the bestseller book ");
+    return true;
+        }else
+            System.out.println(this.getAverageRating()+"is not the best selling book");
+            return false;
 }
 
 
@@ -96,9 +105,7 @@ if (this.isBestseller()){
 
     @Override
     public String toString() {
-        return "\n Book : \n" +
-                "review=" + review +
-                "\nstock=" + quantityIn_stock;
+        return "\n Book : \n" +this.getTitle();
     }
 }
 
