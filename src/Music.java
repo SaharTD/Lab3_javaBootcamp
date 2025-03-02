@@ -32,6 +32,7 @@ user.getPurchased_MediaList().add(this);
             }
         }
 
+        System.out.println("The similar songs to the song :  "+this.getTitle()+" are :\n");
         return musicRecList;
     }
 
@@ -45,7 +46,7 @@ user.getPurchased_MediaList().add(this);
 
     @Override
     public String toString() {
-        return "Music\n" +
-                "artist=''\n" + artist ;
+        return "\nMusic : \n" + this.getTitle()+
+                "\n artist : \n" + artist +"\n";
     }
 }
