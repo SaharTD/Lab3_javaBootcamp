@@ -56,9 +56,13 @@ public class User {
     }
 
 public void addToCart(Media media){
-this.shopping_Cart.add(media);
-
-    }
+        if (this.shopping_Cart.contains(media)) {
+            System.out.println(media.getTitle()+"this item has been already added to the cart");
+        }else {
+            this.shopping_Cart.add(media);
+            System.out.println("\n the item :" + media.getTitle() + " has been added successfully ");
+        }
+}
 
 
     public void remove_FromCart(Media media) {
