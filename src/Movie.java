@@ -20,18 +20,18 @@ private int duration;
 
 public void watch(User user )
 {
+    System.out.println("The movie :"+this.getTitle()+"is added to watch in your purchased list successfully. ");
     user.getPurchased_MediaList().add(this);
 }
 
-public ArrayList<Movie> recommendSimilarMovies(ArrayList<Movie> moiveCatalog){
+public void recommendSimilarMovies(ArrayList<Movie> moiveCatalog){
     ArrayList<Movie> recList=new ArrayList<>();
     for (int i = 0; i < moiveCatalog.size(); i++) {
          if (moiveCatalog.get(i).getAuteur().equalsIgnoreCase(this.getAuteur())&& ! moiveCatalog.get(i).equals(this)){
              recList.add(moiveCatalog.get(i));
          }
     }
-
-    return recList;
+    System.out.println("The similar movies to the movie :  "+this.getTitle()+" is :\n"+recList);
 }
 
 
@@ -45,7 +45,7 @@ public ArrayList<Movie> recommendSimilarMovies(ArrayList<Movie> moiveCatalog){
 
     @Override
     public String toString() {
-        return "\n Movie : \n" + this.getTitle()+
-                "\n duration in minuets = " + duration ;
+        return "\n Movie name : \n" +this.getTitle()+
+                "\n duration in minuets ="+ duration ;
     }
 }
